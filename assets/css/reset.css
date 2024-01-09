@@ -1,0 +1,81 @@
+/* reset.css */
+
+html {
+    color: #333;
+    font-size: 14px;
+    background: #ffffff;
+
+}
+/* 清除默认的内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+pre,
+fieldset,
+legend,
+textarea,
+th,
+td,
+input,
+select,
+button,
+blockquote,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* 清除列表样式 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 清除超链接默认样式 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 清除表单元素默认样式 */
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* 重置标题元素样式 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* 重置表单元素部分样式 */
+button,
+input {
+    overflow: visible;
+}
+
+/* 重置表格元素部分样式 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
