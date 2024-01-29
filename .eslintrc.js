@@ -34,10 +34,16 @@ module.exports = {
     'vue/html-self-closing': 'off',
     'vue/no-v-html': 'off',
     'no-multi-spaces': 'off',
-    'object-shorthand': 'warn',
     'no-unused-vars': 'warn',
     'no-var': 'off',
     'no-use': 'off',
     'no-globals-in-created': 'off',
+    'no-async-promise-executor': 'off',
+    'vue/multi-word-component-names': 'off',
+    "object-shorthand": 0,
+    "vue/first-attribute-linebreak": ["error", {
+      "singleline": "ignore",
+      "multiline": "ignore"
+    }]
   },
 }

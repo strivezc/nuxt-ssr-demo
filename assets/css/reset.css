@@ -3,8 +3,8 @@
 html {
     color: #333;
     font-size: 14px;
-    background: #ffffff;
-
+    background: #F9F9F9;
+    font-family: PingFang SC-Regular;
 }
 /* 清除默认的内外边距 */
 body,

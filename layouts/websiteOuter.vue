@@ -1,19 +1,22 @@
 <template>
   <div class="app-wrapper">
     <WebsiteHeader></WebsiteHeader>
+    <SideBar></SideBar>
     <nuxt/>
     <WebsiteFooter></WebsiteFooter>
   </div>
 </template>
 
 <script>
-import WebsiteFooter from '~/components/WebsiteFooter'
-import WebsiteHeader from '~/components/WebsiteHeader'
+import WebsiteHeader from '@/components/WebsiteHeader'
+import SideBar from '@/components/SideBar'
+import WebsiteFooter from '@/components/WebsiteFooter'
 
 export default {
   components: {
+    WebsiteHeader,
+    SideBar,
     WebsiteFooter,
-    WebsiteHeader
   },
 }
 </script>

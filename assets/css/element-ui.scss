@@ -1,0 +1,57 @@
+// 首页退出登录弹框
+.dropdown-menu__item{
+  padding: 0 32px;
+}
+.el-dropdown-menu__item:not(.is-disabled):hover{
+  background: #0087ff;
+  color: #fff;
+}
+
+//提示框样式alert
+.notice-message {
+  width: 384px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  .el-message-box__header {
+    padding: 30px 25px 10px 30px;
+
+    .el-message-box__title {
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+      line-height: 25px;
+    }
+  }
+
+  .el-message-box__content {
+    padding: 20px 30px 30px 30px;
+    color: #666;
+    font-size: 16px;
+
+    .el-message-box__message {
+      text-align: center;
+    }
+  }
+
+  .el-message-box__btns {
+    text-align: center;
+    padding-bottom: 20px;
+
+    .el-button {
+      width: 220px;
+      height: 40px;
+      background: #0087FF;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 22px;
+
+      &:hover {
+        opacity: 0.95;
+      }
+    }
+  }
+}

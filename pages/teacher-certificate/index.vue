@@ -3,7 +3,7 @@
     <div class="banner"></div>
     <div class="main-wrap">
       <ul>
-        <li v-for="(item, index) in list" :key="index">
+        <li v-for="item in list" :key="item.certificateNum">
           <div class="teacher-img">
             <img :src="item.userImg" alt=""/>
             <div class="language">教授科目：{{ item.language }}</div>
@@ -49,22 +49,24 @@ export default {
       ]
     }
   },
-  async asyncData({ app }) {
-    let asyncDataErr = []
+  async asyncData({ app, query }) {
+    let params = {
+      currPage: query.page ? Number(query.page) : 1,
+      pageSize: 6
+    }
     let list = []
     let maxPage = 0
     try {
-      const { resultData, totalCount } = await app.$api.showIndexTeacher({ currPage: 1, pageSize: 6 })
+      const { resultData, totalCount } = await app.$api.showIndexTeacher(params)
       list = resultData
       maxPage = Math.ceil(totalCount / 6)
     } catch (e) {
       console.log(e, 'error')
-      asyncDataErr = e
     }
     return {
       list,
       maxPage,
-      asyncDataErr
+      params
     }
   },
   data() {
@@ -77,39 +79,35 @@ export default {
       maxPage: 1
     }
   },
-  created() {
-    if (process.client) {
-      if (this.asyncDataErr.resultCode === 3) {
-        this.$message.error(this.asyncDataErr.resultMessage)
-      }
-      // var _hmt = _hmt || [];
-      // (function() {
-      //   var hm = document.createElement('script')
-      //   hm.src = 'https://hm.baidu.com/hm.js?9b22e04ba5e05f2cb75a8a266cb8cd61'
-      //   var s = document.getElementsByTagName('script')[0]
-      //   s.parentNode.insertBefore(hm, s)
-      // })()
+  watchQuery: ['page'],
+  mounted() {
+    /* eslint-disable no-use-before-define */
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script')
+      hm.src = 'https://hm.baidu.com/hm.js?9b22e04ba5e05f2cb75a8a266cb8cd61'
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(hm, s)
+    })()
+    /* eslint-enable no-use-before-define */
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy')
+    // 在组件销毁前清除脚本
+    let script = document.querySelector('script[src="https://hm.baidu.com/hm.js?9b22e04ba5e05f2cb75a8a266cb8cd61"]')
+    if (script) {
+      script.parentNode.removeChild(script)
     }
   },
   methods: {
-    async getList() {
-      try {
-        const { resultData, totalCount } = await this.$api.showIndexTeacher(this.params)
-        this.list = resultData
-        this.maxPage = Math.ceil(totalCount / 6)
-      } catch (e) {
-        console.log(e, 'error')
-      }
-    },
     search(type) {
       // type 0上一页 1下一页
       if (type === 0) {
         this.params.currPage = this.params.currPage - 1
-        this.getList()
       } else if (type === 1) {
         this.params.currPage = this.params.currPage + 1
-        this.getList()
       }
+      this.$router.push({ path: '/teacher-certificate', query: { page: this.params.currPage } })
     }
   }
 }

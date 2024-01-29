@@ -1,5 +1,5 @@
 <template>
-  <div class="website-footer">
+  <footer class="website-footer">
     <div class="main-wrap middle-wrap">
       <div class="first-line">
         <ul class="product-ul">
@@ -12,35 +12,35 @@
       </div>
       <ul class="about-us">
         <li>
-          <nuxt-link to="/media-reports">关于我们</nuxt-link>
+          <a :href="`${BASE_PATH}/student/media-reports`">关于我们</a>
         </li>
         <li>
-          <nuxt-link to="/contact-us/2">联系我们</nuxt-link>
+          <a :href="`${BASE_PATH}/student/contact-us`">联系我们</a>
         </li>
         <li>
-          <nuxt-link to="/media-reports">热门资讯</nuxt-link>
+          <a :href="`${BASE_PATH}/student/media-reports`">热门资讯</a>
         </li>
         <li>
-          <nuxt-link to="/public-welfare">公益频道</nuxt-link>
+          <a :href="`${BASE_PATH}/student/public-welfare`">公益频道</a>
         </li>
         <li>
-          <nuxt-link to="/class-process">上课流程</nuxt-link>
+          <a :href="`${BASE_PATH}/student/class-process`">上课流程</a>
         </li>
         <li>
-          <nuxt-link to="/questionList">网站帮助</nuxt-link>
+          <a :href="`${BASE_PATH}/student/question-list`">网站帮助</a>
         </li>
         <li>
-          <nuxt-link to="/user-agreement">用户协议</nuxt-link>
+          <a :href="`${BASE_PATH}/student/user-agreement`">用户协议</a>
         </li>
         <li>
-          <nuxt-link to="/privacy-policy">隐私条款</nuxt-link>
+          <a :href="`${BASE_PATH}/student/privacy-policy`">隐私条款</a>
         </li>
         <li>
-          <nuxt-link to="/teacher-certificate" target="_blank">教师资格证展示</nuxt-link>
+          <nuxt-link to="/teacher-certificate" no-prefetch target="_blank">教师资格证展示</nuxt-link>
         </li>
       </ul>
       <div class="last-line">
-        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" tag="a">
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
           <span>Copyright © 深圳青豆教育科技有限公司 粤ICP备15077651号</span>
         </a>
         <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004425" target="_blank">
@@ -48,7 +48,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

@@ -82,21 +82,21 @@ export const actions = {
   //   })
   // },
   // 获取用户的体验课相关信息
-  getExperienceCourseDetail({ commit, state }) {
-    // return new Promise(async (resolve, reject) => {
-      // try {
-      //   const {
-      //     data: { resultData },
-      //   } = await appointedclass.experienceCourseDetails()
-      //   commit('SET_STATUS', resultData.status)
-      //   commit('SET_GET_TRIAL_CLASS', resultData.getTrialClass)
-      //   commit('SET_ATTEND__CLASS', resultData.attendClass)
-      //   resolve(resultData)
-      // } catch (e) {
-      //   reject()
-      //   console.log(e, 'error')
-      // }
-    // })
+  getExperienceCourseDetail({ commit }) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const { resultData } = await this.$api.experienceCourseDetails()
+        // commit('SET_STATUS', resultData.status)
+        // commit('SET_GET_TRIAL_CLASS', resultData.getTrialClass)
+        // commit('SET_ATTEND__CLASS', resultData.attendClass)
+        this.$cookies.set('status', resultData.status)
+        this.$cookies.set('getTrialClass', resultData.getTrialClass)
+        this.$cookies.set('attendClass', resultData.attendClass)
+        resolve(resultData)
+      } catch (e) {
+        reject(e)
+      }
+    })
   },
   // 获取学习顾问信息
   changeMobileArea({ commit, state }) {
@@ -114,35 +114,20 @@ export const actions = {
     })
   },
   // 用户退出登录
-  logout({ commit, state }) {
+  logout({dispatch }) {
     return new Promise((resolve, reject) => {
-      // login
-      //   .logout(2)
-      //   .then(() => {
-      //     this.$cookies.remove('token')
-      //     this.$cookies.remove('userType')
-      //     this.$cookies.remove('userId')
-      //     this.$cookies.remove('userName')
-      //     this.$cookies.remove('isOrgUser')
-      //     this.$cookies.remove('hasOrgPackage')
-      //     this.$cookies.remove('monthLeave')
-      //     this.$cookies.remove('userPhone')
-      //     this.$cookies.remove('mobileArea')
-      //     this.$cookies.remove('userImg')
-      //     this.$cookies.remove('firstSign')
-      //     this.$cookies.remove('memberStatus')
-      //     this.$cookies.remove('guidePageOpen')
-      //     this.$cookies.remove('peopleSign')
-      //     sessionStorage.clear()
-      //     resolve()
-      //   })
-      //   .catch((err) => {
-      //     reject(err)
-      //   })
+      this.$api.logout(2).then(() => {
+        dispatch('reset')
+        sessionStorage.clear()
+        resolve()
+      })
+        .catch((err) => {
+          reject(err)
+        })
     })
   },
   // 用户退出登录
-  reset({ commit, state }) {
+  reset() {
     return new Promise((resolve, reject) => {
       this.$cookies.remove('token')
       this.$cookies.remove('userType')
@@ -158,6 +143,9 @@ export const actions = {
       this.$cookies.remove('memberStatus')
       this.$cookies.remove('guidePageOpen')
       this.$cookies.remove('peopleSign')
+      this.$cookies.set('status', '3')
+      this.$cookies.set('getTrialClass', 0)
+      this.$cookies.set('attendClass', 2)
       resolve()
     })
   }

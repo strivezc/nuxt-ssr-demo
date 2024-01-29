@@ -6,3 +6,22 @@
     width: 1200px;
     margin: 0 auto;
 }
+.htmlContent img{
+    max-width: 100%;
+}
+.site {
+    margin-top: 12px;
+    margin-bottom: 13px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+    line-height: 20px;
+}
+.container{
+    width: 1200px;
+    margin: auto;
+}
+
+.flex{
+    display: flex;
+}
