@@ -2,18 +2,17 @@ const env = require('./env')
 
 export default {
   server: {
-    port: 8001,
-    host: '10.204.42.199'
+    port: 3000, // 服务器运行的端口
+    host: '0.0.0.0',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: '说客英语_英语口语在线学习_外教一对一培训',
     meta: [
       { charset: 'utf-8' },
-      { hid: 'keywords', name: 'keywords', content: '外教英语,英语口语在线学习,英语培训,欧美一对一外教,外教一对一,一对一雅思外教,一对一英语培训,找英语外教,线上一对一英语外教,真人外教一对一,外教口语一对一,英语一对一线上外教,在线外教一对一'},
-      { hid: 'description', name: 'description', content: '说客英语，国内在线英语外教一对一培训知名品牌，外教老师全部持有TESOL、TEEL资格认证，有欧美英语外教、菲律宾英语外教、中国英语教师等英语一对一教师可供学员选择，适合零基础和其他不同基础的学员进行英语学习及英语口语练习。'}
+      { name: 'viewport', content: 'width=device-width,viewport-fit=cover' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/web/favicon.ico' }]
   },
   loading: false,
   env: {

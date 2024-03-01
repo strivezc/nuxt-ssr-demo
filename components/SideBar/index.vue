@@ -1,10 +1,10 @@
 <template>
   <aside class="sider-wrap">
     <a :href="item.linkUrl" class="sider-item" v-for="item in sideBar" :key="item.id" target="_blank">
-      <div><img :src="item.sidebarImg"/>{{item.sidebarName}}</div>
+      <div class="inner"><img :src="item.sidebarImg" alt="侧边栏图标"/>{{item.sidebarName}}</div>
     </a>
     <el-backtop class="sider-item back-top" :right="0" :bottom="0">
-      <div><img src="@/assets/img/top_icon.png" alt=""/>返回顶部</div>
+      <div class="inner"><img src="@/assets/img/top_icon.png" alt="返回顶部"/>返回顶部</div>
     </el-backtop>
     </aside>
 </template>
@@ -47,9 +47,9 @@ export default {
 
     .sider-item {
       display: flex;
-      align-items: center;
       justify-content: center;
-      height: 90px;
+      align-items: center;
+      min-height: 90px;
       width: 90px;
       position: relative;
       box-shadow: none;
@@ -58,7 +58,11 @@ export default {
       font-weight: 400;
       text-align: center;
       cursor: pointer;
-
+      .inner{
+        margin-top: 12px;
+        margin-bottom: 12px;
+        padding: 0 5px;
+      }
       &:hover {
         background: #F2F6FC;
       }

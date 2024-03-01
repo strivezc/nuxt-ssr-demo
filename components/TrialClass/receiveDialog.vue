@@ -8,7 +8,7 @@
       width="450px"
   >
     <div class="container">
-      <img src="@/assets/img/close.png" @click="close" class="close" alt="" />
+      <img src="@/assets/img/close.png" @click="close" class="close" alt="关闭图标" />
       <div class="title-wrap">
         <div class="top">
           <div class="left-line"></div>
@@ -20,18 +20,18 @@
       <el-form :model="form" :rules="formRules" ref="form">
         <el-form-item prop="phone">
           <el-input placeholder="输入您的手机号码" maxlength="11" class="input" v-model="form.phone">
-            <img slot="prefix" src="@/assets/img/phone.png" />
+            <img slot="prefix" src="@/assets/img/phone.png" alt="phone-icon" />
           </el-input>
         </el-form-item>
         <el-form-item prop="pictureCode" v-if="centreMsg === 1">
           <el-input placeholder="输入图形验证码" maxlength="4" class="input" v-model="form.pictureCode">
-            <img slot="prefix" src="@/assets/img/code.png" />
-            <img class="send_code" slot="suffix" :src="imgBase64" alt="" @click="getBase64ImgCode" />
+            <img slot="prefix" src="@/assets/img/code.png" alt="code-icon"/>
+            <img class="send_code" slot="suffix" :src="imgBase64" alt="图形验证码" @click="getBase64ImgCode" />
           </el-input>
         </el-form-item>
         <el-form-item prop="captcha">
           <el-input placeholder="输入短信验证码" maxlength="6" class="input" v-model="form.captcha">
-            <img slot="prefix" src="@/assets/img/phoneCode.png" />
+            <img slot="prefix" src="@/assets/img/phoneCode.png" alt="短信验证码"/>
             <span class="code" slot="suffix" @click="sendCode" v-show="countdown === 0">获取验证码</span>
             <span class="code time" slot="suffix" v-show="countdown > 0">{{ countdown }}S</span>
           </el-input>

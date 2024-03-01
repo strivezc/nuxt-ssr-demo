@@ -8,7 +8,7 @@
     width="591px"
     top="10vh"
   >
-    <div class="container">
+    <div>
       <div class="top-wrap">
         <div class="title">1、选择适合您的英语基础</div>
         <div class="block-wrap">

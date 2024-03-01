@@ -1,17 +1,17 @@
 <template>
   <header class="website-header">
     <div class="header-wrap middle-wrap">
-      <nuxt-link to="/home">
+      <a :href="`${BASE_PATH}`">
         <div class="header-left">
-          <img class="logo" src="~/assets/img/outer/icon-hl.png"/>
+          <img class="logo" src="~/assets/img/outer/icon-hl.png" alt="官网图标"/>
           <!--          <img class="icon" src="~/assets/img/vector.png" alt="">-->
           <!--          <span class="phone" itemprop="telephone">400-990-9915</span>-->
         </div>
-      </nuxt-link>
+      </a>
       <div class="header-right">
         <div class="receive-button" @click="openReceiveDialog"
              v-if="showLoginBlock || (status == 3 && getTrialClass == 0)">
-          <img src="@/assets/img/gift.png" class="icon" alt=""/>
+          <img src="@/assets/img/gift.png" class="icon" alt="领取体验课"/>
           <span class="text">领取体验课</span>
         </div>
         <template v-if="showLoginBlock">
@@ -25,8 +25,8 @@
         <!-- 学生端已登录账号显示 -->
         <div class="main-left" v-else-if="!showLoginBlock">
           <div class="main-left-img cursor-has" @click="jumpHome">
-            <img v-if="!userImg || userImg === 'default.jpg'" src="~/assets/img/default-img.png" alt=""/>
-            <img v-else :src="userImg" alt=""/>
+            <img v-if="!userImg || userImg === 'default.jpg'" src="~/assets/img/default-img.png" alt="默认头像"/>
+            <img v-else :src="userImg" alt="用户头像"/>
           </div>
           <div class="main-left-name cursor-has" @click="jumpHome">{{ userName }}</div>
           <el-dropdown trigger="click" @command="handleCommand" @visible-change="visibleChange">
@@ -179,6 +179,7 @@ export default {
         display: flex;
         position: relative;
         height: 100%;
+        align-items: center;
 
         .receive-button {
           box-sizing: border-box;
@@ -190,7 +191,6 @@ export default {
           height: 40px;
           border-radius: 60px 60px 60px 60px;
           border: 1px solid #fff;
-          margin-top: 15px;
           cursor: pointer;
           margin-right: 10px;
           cursor: pointer;
@@ -219,7 +219,6 @@ export default {
         }
 
         .login-button {
-          margin-top: 15px;
           margin-right: 10px;
           width: 94px;
           height: 40px;
@@ -248,8 +247,6 @@ export default {
         align-items: center;
         height: 40px;
         color: #fff;
-        margin-top: 15px;
-
         .white {
           color: #ffffff;
         }

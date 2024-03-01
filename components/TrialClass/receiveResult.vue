@@ -8,7 +8,7 @@
       width="543px"
   >
     <div class="container">
-      <img src="@/assets/img/eClassIcon.png" class="icon" alt=""/>
+      <img src="@/assets/img/eClassIcon.png" class="icon" alt="icon"/>
       <div class="title">恭喜您，领取成功！</div>
       <div class="tip">请联系课程顾问，顾问会给您安排1V1教学老师~</div>
       <a :href="`${BASE_PATH}/student/home/learning-hall`" @click="close">

@@ -9,7 +9,7 @@
             <time>{{articleDetail.publishTime}}</time>
             <span>浏览量：{{articleDetail.visits}}</span>
           </div>
-          <div class="content" v-html="articleDetail.articleContent"></div>
+          <div class="content htmlContent" v-html="articleDetail.articleContent"></div>
         </article>
         <section class="footer">
           <p class="footer-title">推荐阅读</p>
@@ -43,6 +43,8 @@ export default {
     return {
       title: `${this.articleDetail.seoTitle} - 说客英语`,
       meta: [
+        { 'http-equiv': 'Cache-Control', content: 'no-store, no-cache, must-revalidate' },
+        { 'http-equiv': 'Pragma', content: 'no-cache' },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -118,6 +120,7 @@ export default {
 
 <style scoped lang="scss">
   .left-wrap {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 870px;
@@ -143,7 +146,7 @@ export default {
         font-weight: 500;
         color: #999999;
         padding-bottom: 34px;
-        border-bottom: 1px solid #D9D9D9;
+        border-bottom: 1px solid rgba(216, 216, 216, 0.5);
       }
 
       .content {
@@ -153,7 +156,7 @@ export default {
         line-height: 40px;
         padding-top: 30px;
         padding-bottom: 60px;
-        border-bottom: 1px solid #D9D9D9;
+        border-bottom: 1px solid rgba(216, 216, 216, 0.5);
       }
     }
 
@@ -202,7 +205,7 @@ export default {
   .right-wrap {
     display: flex;
     flex-direction: column;
-    margin-left: 34px;
+    margin-left: 30px;
     .item{
       width: 300px;
       height: 600px;

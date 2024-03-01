@@ -44,7 +44,7 @@
           <span>Copyright © 深圳青豆教育科技有限公司 粤ICP备15077651号</span>
         </a>
         <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004425" target="_blank">
-          <img src="@/assets/img/icon-beian.png" />
+          <img src="@/assets/img/icon-beian.png" alt="beian"/>
         </a>
       </div>
     </div>
